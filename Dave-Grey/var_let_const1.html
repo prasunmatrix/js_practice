@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var,Let and Const</title>
+</head>
+<body>
+  <script>
+    //global scope
+    var x=1; //function scope
+    let y=2; //block scope
+    const z=3;
+    console.log(`global:${x}`);
+    console.log(`global:${y}`);
+    console.log(`global:${z}`);
+
+    function myFunc(){
+      let y=4;
+      const z=5;
+      console.log(`function:${x}`);
+      console.log(`function:${y}`);
+      console.log(`function:${z}`);
+      
+      {
+        const y=8;
+        console.log(`block:${x}`);
+        console.log(`block:${y}`);
+        console.log(`block:${z}`);
+      }
+    }
+    myFunc();
+  </script>    
+</body>
+</html>
