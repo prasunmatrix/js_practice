@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Class</title>
+</head>
+<body>
+  <script>
+    class Pizza{
+      constructor(pizzaSize){
+        this.size=pizzaSize;
+        this.crust="original";
+      }
+      getCrust(){
+        return this.crust;
+      }
+      setCrust(pizzaCrust){
+        this.crust=pizzaCrust;
+      }      
+    }
+    class SpecialtPizza extends Pizza{
+      constructor(pizzaSize){
+        super(pizzaSize);
+        this.type="The Works";
+      }
+      slice(){
+        console.log(`Our ${this.type} ${this.size} pizza has 8 slice`);
+      }
+    }
+    const mySpecialty=new SpecialtPizza("medium"); 
+    mySpecialty.slice();
+  </script>
+</body>
+</html>

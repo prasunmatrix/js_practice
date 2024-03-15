@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const myObj={name: "Dave"};
+    const anotherObj={
+      alive:true,
+      answer:42,
+      hobbies:["Eat","Sleep","Code"],
+      bevarage:{
+        morning: "Coffee",
+        afternoon: "Iced Tea"
+      },
+      action:function(){
+        //return "Hello World";
+        return `Time for ${this.bevarage.morning}`;
+      }
+    };
+    //=================================================================// 
+    //Inheritance
+    const vehicle = {
+      wheels:4,
+      engine: function(){
+        return "Vrooom!";
+      }
+    };
+    const truck=Object.create(vehicle);
+    truck.door=2;
+    //=================================================================// 
+
+    const car=Object.create(vehicle);
+    car.doors=4;
+    car.engine=function(){
+      return "Whooosh";  
+    }
+    car.wheels=6; 
+    //=================================================================//
+    const tesla=Object.create(car);
+    tesla.engine=function(){
+      return "Shhhhhhhhhhhh";
+    }
+    //==================================================================//
+    const band={
+      vocals:"Robert Plant",
+      guitar:"Jimmy Page",
+      bass:"John Paul Jones",
+      drums:"John Bonham"
+    }
+    delete band.drums;
+    //=================================================================//
+    console.log(anotherObj.hobbies[1]);
+    console.log(anotherObj.alive);
+    console.log(anotherObj.bevarage);
+    console.log(anotherObj.bevarage.morning);
+    console.log(anotherObj["bevarage"]);
+    console.log(anotherObj["bevarage"]["morning"]);
+    console.log(anotherObj.action());
+    //=================================================================//
+    console.log(truck);
+    console.log(truck.wheels);
+    console.log(truck.engine());  //Inheritance
+
+    console.log(car.engine());
+    console.log(car.doors);
+    console.log(car.wheels);
+
+    console.log(tesla.wheels);
+    console.log(tesla.engine());
+
+    console.log(Object.keys(band));
+    console.log(Object.values(band));
+    //===============================================================//
+
+    for(let job in band){
+      console.log(`On ${job}, it's ${band[job]}`);
+    }
+    console.log(band.hasOwnProperty("drums"));
+
+    //===============================================================//
+
+    const {guitar:myVariable,bass:myBass}=band;
+    console.log(myVariable);
+    console.log(myBass);
+
+    //===============================================================//
+    function signs({vocals}){
+      return `${vocals} sings!`;
+    }
+    console.log(signs(band));
+    //===============================================================//
+
+  </script>  
+</body>
+</html>

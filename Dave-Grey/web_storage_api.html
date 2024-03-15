@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<script>
+  // window.alert("ok!");
+  // alert("ok!");
+  // window.alert(window.location);
+  // alert(location);
+  const myArray=["eat","sleep","code"];
+  const myObject={
+    name:"PRASUN",
+    hobbies:["eat","sleep","code"],
+    logNamne:function(){
+      console.log(this.name);
+    }
+  };
+  //const myArray=["eat","sleep","code"];
+  myObject.logNamne();
+
+  //sessionStorage.setItem("mySessionStore",myObject);
+  //sessionStorage.setItem("mySessionStore",myArray);
+  sessionStorage.setItem("mySessionStore", JSON.stringify(myObject));
+  //const mySessionData=sessionStorage.getItem("mySessionStore");
+  const mySessionData=sessionStorage.getItem("mySessionStore");
+  const mySessionDataParse=JSON.parse(sessionStorage.getItem("mySessionStore"));
+  console.log(mySessionData);
+  console.log(typeof mySessionData);
+  console.log(mySessionDataParse);
+  
+  //======================================Session Storage=====================================//
+  sessionStorage.setItem("mySessionStore1", JSON.stringify(myArray));
+  const mySessionData1=JSON.parse(sessionStorage.getItem("mySessionStore1"));
+  console.log(mySessionData1);
+  //======================================Session Storage=====================================//
+  //======================================Local Storage=====================================//
+  localStorage.setItem("myLocalStore", JSON.stringify(myArray));
+  const myLocalStoreData=JSON.parse(localStorage.getItem("myLocalStore"));
+  console.log(myLocalStoreData);
+  //======================================Local Storage=====================================//
+</script>
+</body>
+
+</html>
